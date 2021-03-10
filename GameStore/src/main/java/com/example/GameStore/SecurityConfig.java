@@ -35,15 +35,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder.inMemoryAuthentication()
-                .withUser("Vasko")
-                .password("{noop}1234")
-                .roles("ADMIN");
+ 
 
         authenticationManagerBuilder.jdbcAuthentication().dataSource(dataSource)
                 .passwordEncoder(new BCryptPasswordEncoder())
-                .usersByUsernameQuery("select username,password,enabled from user where username = ?")
-                .authoritiesByUsernameQuery("select username, user.role as authority from user where username = ?");
+                .usersByUsernameQuery("select username,password,enabled from users where username = ?")
+                .authoritiesByUsernameQuery("select username, user.role as authority from users where username = ?");
     }
 
 
