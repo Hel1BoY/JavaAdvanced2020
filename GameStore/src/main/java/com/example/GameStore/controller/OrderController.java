@@ -14,7 +14,7 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping("place")
+    @PostMapping("")
     public @ResponseBody Order placeOrder(@RequestParam String username, @RequestParam String gameName, @RequestParam Integer quantity){
         return orderService.placeOrder(username,gameName,quantity);
     }
