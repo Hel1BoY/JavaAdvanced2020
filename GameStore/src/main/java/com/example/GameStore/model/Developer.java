@@ -44,10 +44,7 @@ public class Developer {
         return name;
     }
 
-    public void setName(String name) throws IllegalArgumentException{
-        if(name == null || name.matches("\\s{0,}")) {
-            throw new IllegalArgumentException();
-        }
+    public void setName(String name) { 
         this.name = name;
     }
 
