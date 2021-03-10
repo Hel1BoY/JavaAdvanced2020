@@ -62,11 +62,11 @@ public class GameServiceImpl implements GameService {
             }
 
         //check if the rest of game's properties are valid
-            if (game.getName() == null || game.getName().matches("\\s{0,}") ||
-                    game.getIsbn() == null || game.getIsbn().matches("\\s{0,}") ||
+            if (game.getName() == null || game.getName().isBlank() ||
+                    game.getIsbn() == null || game.getIsbn().isBlank() ||
                     game.getQuantity() == null || game.getQuantity() <= 0 ||
                     game.getPrice() == null || game.getPrice() < 0 ||
-                    game.getGenre() == null || game.getGenre().matches("\\s{0,}") ||
+                    game.getGenre() == null || game.getGenre().isBlank() ||
                     game.getReleaseYear() == null || game.getReleaseYear() < 2000){
 
                 throw new IllegalArgumentException();
