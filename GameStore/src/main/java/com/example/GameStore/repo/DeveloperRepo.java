@@ -9,6 +9,6 @@ public interface DeveloperRepo extends CrudRepository<Developer, Long> {
 
     Optional<Developer> findByPostcode(String postcode);
     Optional<Developer> findByName(String name);
-    Optional<Developer> findById(Long id);
+ 
 
 }
