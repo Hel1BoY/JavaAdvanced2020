@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User saveUser(User user) throws IllegalArgumentException{
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         checkProperties(user);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepo.save(user);
