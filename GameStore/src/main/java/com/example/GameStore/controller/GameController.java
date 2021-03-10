@@ -21,7 +21,7 @@ public class GameController {
     @Autowired
     private DeveloperService developerService;
 
-    @PostMapping("save")
+    @PostMapping("")
     public @ResponseBody
     Game saveGame(@RequestBody Game game) {
         try {
@@ -31,7 +31,7 @@ public class GameController {
         }
     }
 
-    @PutMapping("update/price/{id}")
+    @PutMapping("price/{id}")
     public synchronized @ResponseBody
     Game updatePrice(@RequestBody Game game, @PathVariable Long id) {
         try {
@@ -42,7 +42,7 @@ public class GameController {
         }
     }
 
-    @GetMapping("get/name")
+    @GetMapping("name")
     public @ResponseBody Game getByName(@RequestParam String name){
         try {
             return gameService.getByName(name);
@@ -51,7 +51,7 @@ public class GameController {
         }
     }
 
-    @GetMapping("get/isbn")
+    @GetMapping("isbn")
     public @ResponseBody Game getByIsbn(@RequestParam String isbn){
         try {
             return gameService.getByIsbn(isbn);
