@@ -52,9 +52,6 @@ public class User {
     }
 
     public void setUsername(String username) {
-        if(username == null || username.equals("\\s*")){
-            throw new IllegalArgumentException();
-        }
         this.username = username;
     }
 
@@ -63,11 +60,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        if(password == null || password.matches("\\s{0,}")){
-            throw new IllegalArgumentException();
-        }
-        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        this.password = passwordEncoder.encode(password).toCharArray();
+        this.password = password.toCharArray();
     }
 
     public String getEmail() {
@@ -75,9 +68,6 @@ public class User {
     }
 
     public void setEmail(String email) {
-        if(email == null || email.equals("[^\\s*]")){
-            throw new IllegalArgumentException();
-        }
         this.email = email;
     }
 
@@ -86,9 +76,7 @@ public class User {
     }
 
     public void setRole(String role) {
-        if(role == null || role.equals("[^\\s*]")){
-            throw new IllegalArgumentException();
-        }this.role = role.toLowerCase();
+       this.role = role.toLowerCase();
     }
 
 
