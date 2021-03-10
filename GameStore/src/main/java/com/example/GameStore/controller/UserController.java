@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping("save")
+    @PostMapping("")
     public User saveUser(@RequestBody User user){
         try {
             return userService.saveUser(user);
@@ -30,7 +30,7 @@ public class UserController {
         }
     }
 
-    @PutMapping("updatename/user{id}")
+    @PutMapping("user{id}")
     public User updateUsername(@RequestBody User user, @PathVariable Long id) {
         try {
             userService.getById(id);
@@ -40,7 +40,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("get/username")
+    @GetMapping("username")
     public @ResponseBody User getByUsername(@RequestParam String username){
         try{
             return userService.getByUsername(username);
@@ -50,7 +50,7 @@ public class UserController {
 
     }
 
-    @GetMapping("get/email")
+    @GetMapping("email")
     public @ResponseBody User getByEmail(@RequestParam String email){
         try{
             return userService.getByEmail(email);
