@@ -51,8 +51,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public void checkProperties(User user) throws IllegalArgumentException{
 
-        if(user.getUsername() == null || user.getUsername().matches("\\s{0,}") ||
-                user.getPassword() == null || user.getPassword().matches("\\s{0,}") ||
+        if(user.getUsername() == null || user.getUsername().isBlank() ||
+                user.getPassword() == null || user.getPassword().isBlank() ||
                 user.getEmail() == null || !user.getEmail().matches("[A-Z]*[a-z]+[1-9]*@[a-z]+\\.[a-z]+") ||
                 user.getRole() == null  || !(user.getRole().toLowerCase().equals("admin") ||
                                              user.getRole().toLowerCase().equals("user")) )
