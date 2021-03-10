@@ -14,7 +14,7 @@ public class DeveloperController {
     @Autowired
     private DeveloperService developerService;
 
-    @PostMapping("save")
+    @PostMapping("")
     public @ResponseBody
     Developer saveDev(@RequestBody Developer developer) throws IllegalArgumentException{
         try {
@@ -25,7 +25,7 @@ public class DeveloperController {
 
     }
 
-    @PutMapping("update/name/{id}")
+    @PutMapping("name/{id}")
     public @ResponseBody Developer updateDevName(@RequestBody String newName, @PathVariable Long id) {
         try{
             return developerService.updateDevName(newName, developerService.getById(id));
@@ -36,7 +36,7 @@ public class DeveloperController {
         }
     }
 
-    @GetMapping("get/postcode")
+    @GetMapping("postcode")
     public @ResponseBody Developer getDevByPostCode(@RequestParam String postcode){
         try {
             return developerService.getByPostcode(postcode);
@@ -45,7 +45,7 @@ public class DeveloperController {
         }
     }
 
-    @GetMapping("get/name")
+    @GetMapping("name")
     public @ResponseBody Developer getDevByName(@RequestParam String name){
         try {
             return developerService.getByName(name);
