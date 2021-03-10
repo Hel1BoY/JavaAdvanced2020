@@ -40,9 +40,9 @@ public class DeveloperServiceImpl implements DeveloperService{
 
     @Override
     public void checkPropertiesForSaving(Developer developer) throws IllegalArgumentException{
-        if (developer.getName() == null || developer.getName().matches("\\s{0,}") ||
-                developer.getCountry() == null || developer.getCountry().matches("\\s{0,}") ||
-                developer.getPostcode() == null || developer.getPostcode().matches("\\s{0,}")) {
+        if (developer.getName() == null || developer.getName().isBlank() ||
+                developer.getCountry() == null || developer.getCountry().isBlank() ||
+                developer.getPostcode() == null || developer.getPostcode().isBlank()) {
             throw new IllegalArgumentException();
         }
     }
