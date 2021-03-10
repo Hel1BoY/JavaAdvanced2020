@@ -56,7 +56,7 @@ public class User {
     }
 
     public String getPassword() {
-        return Arrays.toString(password);
+        return new String(password);
     }
 
     public void setPassword(String password) {
