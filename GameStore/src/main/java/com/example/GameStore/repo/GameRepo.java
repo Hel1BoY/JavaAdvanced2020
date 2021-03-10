@@ -10,6 +10,5 @@ public interface GameRepo extends CrudRepository<Game, Long> {
     Optional<Game> findByName(String name);
     Optional<Game> findByIsbn(String isbn);
     Optional<Game> findByGenre(String genre);
-    Optional<Game> findById(Long id);
 
 }
