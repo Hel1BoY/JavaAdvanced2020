@@ -20,6 +20,24 @@ public class GameController {
 
     @Autowired
     private DeveloperService developerService;
+    
+    @GetMapping("name")
+    public @ResponseBody Game getByName(@RequestParam String name){
+        try {
+            return gameService.getByName(name);
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException();
+        }
+    }
+
+    @GetMapping("isbn")
+    public @ResponseBody Game getByIsbn(@RequestParam String isbn){
+        try {
+            return gameService.getByIsbn(isbn);
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException();
+        }
+    }
 
     @PostMapping("")
     public @ResponseBody
@@ -42,23 +60,6 @@ public class GameController {
         }
     }
 
-    @GetMapping("name")
-    public @ResponseBody Game getByName(@RequestParam String name){
-        try {
-            return gameService.getByName(name);
-        }catch (NoSuchElementException e){
-            throw new NoSuchElementException();
-        }
-    }
-
-    @GetMapping("isbn")
-    public @ResponseBody Game getByIsbn(@RequestParam String isbn){
-        try {
-            return gameService.getByIsbn(isbn);
-        }catch (NoSuchElementException e){
-            throw new NoSuchElementException();
-        }
-    }
-
+    
 
 }
