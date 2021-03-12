@@ -13,6 +13,24 @@ public class DeveloperController {
 
     @Autowired
     private DeveloperService developerService;
+    
+    @GetMapping("postcode")
+    public @ResponseBody Developer getDevByPostCode(@RequestParam String postcode){
+        try {
+            return developerService.getByPostcode(postcode);
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException();
+        }
+    }
+
+    @GetMapping("name")
+    public @ResponseBody Developer getDevByName(@RequestParam String name){
+        try {
+            return developerService.getByName(name);
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException();
+        }
+    }
 
     @PostMapping("")
     public @ResponseBody
@@ -36,24 +54,7 @@ public class DeveloperController {
         }
     }
 
-    @GetMapping("postcode")
-    public @ResponseBody Developer getDevByPostCode(@RequestParam String postcode){
-        try {
-            return developerService.getByPostcode(postcode);
-        }catch (NoSuchElementException e){
-            throw new NoSuchElementException();
-        }
-    }
-
-    @GetMapping("name")
-    public @ResponseBody Developer getDevByName(@RequestParam String name){
-        try {
-            return developerService.getByName(name);
-        }catch (NoSuchElementException e){
-            throw new NoSuchElementException();
-        }
-    }
-
+    
 
 }
 
