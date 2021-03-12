@@ -20,6 +20,34 @@ public class UserController {
 
     @Autowired
     private OrderService orderService;
+    
+    @GetMapping("username")
+    public @ResponseBody User getByUsername(@RequestParam String username){
+        try{
+            return userService.getByUsername(username);
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException();
+        }
+
+    }
+
+    @GetMapping("email")
+    public @ResponseBody User getByEmail(@RequestParam String email){
+        try{
+            return userService.getByEmail(email);
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException();
+        }
+    }
+    
+    @DeleteMapping("delete{id}")
+    public @ResponseBody void deleteUser(@PathVariable Long id){
+        try{
+            userService.deleteUser(id);
+        }catch (NoSuchElementException e){
+            throw new NoSuchElementException();
+        }
+    }
 
     @PostMapping("")
     public User saveUser(@RequestBody User user){
@@ -39,33 +67,6 @@ public class UserController {
             throw new NoSuchElementException();
         }
     }
-
-    @GetMapping("username")
-    public @ResponseBody User getByUsername(@RequestParam String username){
-        try{
-            return userService.getByUsername(username);
-        }catch (NoSuchElementException e){
-            throw new NoSuchElementException();
-        }
-
-    }
-
-    @GetMapping("email")
-    public @ResponseBody User getByEmail(@RequestParam String email){
-        try{
-            return userService.getByEmail(email);
-        }catch (NoSuchElementException e){
-            throw new NoSuchElementException();
-        }
-    }
-
-    @DeleteMapping("delete{id}")
-    public @ResponseBody void deleteUser(@PathVariable Long id){
-        try{
-            userService.deleteUser(id);
-        }catch (NoSuchElementException e){
-            throw new NoSuchElementException();
-        }
-    }
+    
 
 }
