@@ -14,11 +14,6 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping("")
-    public @ResponseBody Order placeOrder(@RequestParam String username, @RequestParam String gameName, @RequestParam Integer quantity){
-        return orderService.placeOrder(username,gameName,quantity);
-    }
-
     @DeleteMapping("decline/{id}")
     public void declineOrder(@PathVariable Long id) {
         try {
@@ -27,6 +22,11 @@ public class OrderController {
             throw new NoSuchElementException();
         }
 
+    }
+    
+    @PostMapping("")
+    public @ResponseBody Order placeOrder(@RequestParam String username, @RequestParam String gameName, @RequestParam Integer quantity){
+        return orderService.placeOrder(username,gameName,quantity);
     }
 
 }
